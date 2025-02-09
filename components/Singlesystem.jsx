@@ -18,7 +18,7 @@ function Singlesystem() {
 
             <div className="flex justify-center">
               <div className="flex xl:space-x-28 space-x-16 ">
-                <div>
+                <div className=" hover:scale-110 transition-all duration-300 hover:shadow-xl">
                   <div className="text-center px-3 py-4 w-52 shadow">
                     <div className="flex justify-center mb-4 ">
                       <Image
@@ -40,7 +40,7 @@ function Singlesystem() {
                   </div>
                 </div>
 
-                <div>
+                <div className=" hover:scale-110 transition-all duration-300 hover:shadow-xl">
                   <div className="text-center px-3 py-4 w-52 shadow">
                     <div className="flex justify-center mb-4">
                       <Image
@@ -62,7 +62,7 @@ function Singlesystem() {
                   </div>
                 </div>
 
-                <div>
+                <div className=" hover:scale-110 transition-all duration-300 hover:shadow-xl">
                   <div className="text-center px-3 py-4 w-52 shadow">
                     <div className="flex justify-center mb-4">
                       <Image

@@ -1,5 +1,48 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+
+function Counter({ target }) {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let start = 0;
+    const duration = 3000;
+    const increment = target / (duration / 50);
+
+    const counter = setInterval(() => {
+      start += increment;
+      if (start >= target) {
+        setCount(target);
+        clearInterval(counter);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 50);
+
+    return () => clearInterval(counter);
+  }, [isVisible, target]);
+
+  return <span ref={ref}>{count.toLocaleString()}</span>;
+}
 
 function Helping() {
   return (
@@ -28,7 +71,7 @@ function Helping() {
                   />
                   <div className=" ml-4 text-neutral_DGrey text-[20px]/[20px] font-semibold text-nowrap">
                     <span>
-                      2,245,341
+                      <Counter target={2245341} />
                       <p className=" text-neutralL_Grey text-[12px]/[16px]">
                         Members
                       </p>
@@ -45,7 +88,7 @@ function Helping() {
                   />
                   <div className=" ml-4 text-neutral_DGrey text-[20px]/[20px] font-semibold text-nowrap">
                     <span>
-                      46,238
+                      <Counter target={46238} />
                       <p className=" text-neutralL_Grey text-[12px]/[16px]">
                         Clubs
                       </p>
@@ -64,7 +107,7 @@ function Helping() {
                   />
                   <div className=" ml-4 text-neutral_DGrey text-[20px]/[20px] font-semibold text-nowrap">
                     <span>
-                      828,867
+                      <Counter target={828867} />
                       <p className=" text-neutralL_Grey text-[12px]/[16px]">
                         Event Bookings
                       </p>
@@ -81,7 +124,7 @@ function Helping() {
                   />
                   <div className=" ml-4 text-neutral_DGrey text-[20px]/[20px] font-semibold text-nowrap">
                     <span>
-                      1,926,436
+                      <Counter target={1926436} />
                       <p className=" text-neutralL_Grey text-[12px]/[16px]">
                         Payments
                       </p>

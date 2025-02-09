@@ -1,8 +1,17 @@
+"use client";
+import { useState, useEffect } from "react";
 import React from "react";
-import { FaArrowRightLong } from "react-icons/fa6";
 import Image from "next/image";
-
+import { FaArrowRightLong } from "react-icons/fa6";
+import { PiSpinnerLight } from "react-icons/pi";
+import Link from "next/link";
 function Footer() {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(true);
+    setTimeout(() => setIsClicked(false), 9500);
+  };
   return (
     <div>
       <div className="bg-neutral_Sliver w-full flex justify-center py-5 xl:px-24 px-6 ">
@@ -14,15 +23,28 @@ function Footer() {
                   Pellentesque suscipit <p>fringilla libero eu.</p>
                 </h2>
               </div>
-              <a
-                href="#"
-                className="bg-primary text-neutralwhite py-2 px-5 rounded mt-5 inline-flex items-center"
-              >
-                <span>Get demo</span>
-                <div className="flex justify-center items-center px-2">
-                  <FaArrowRightLong />
-                </div>
-              </a>
+              <Link href="#" passHref legacyBehavior>
+                <button
+                  type="button"
+                  onClick={handleClick}
+                  aria-label="Click to perform action"
+                  aria-busy={isClicked}
+                  className={`text-neutralwhite py-2 px-5 mt-5 rounded transition-all duration-200 focus:ring-neutral_DGrey focus:ring-2 focus:outline-none active:focus:ring-transparent hover:bg-S2 ${
+                    isClicked ? "bg-S2 focus:ring-transparent" : "bg-primary"
+                  }`}
+                >
+                  <span className="flex pl-1">
+                    Get demo
+                    <div className="flex justify-center items-center px-2">
+                      {isClicked ? (
+                        <PiSpinnerLight className="animate-spin duration-300 transition-all" />
+                      ) : (
+                        <FaArrowRightLong />
+                      )}
+                    </div>
+                  </span>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -43,12 +65,12 @@ function Footer() {
                 <p>All rights reserved</p>
               </h4>
               <div className="flex space-x-3">
-                <div className="w-9 h-9 bg-neutral_DGrey rounded-full flex justify-center items-center">
-                  <a
-                    href="#"
-                    aria-label="Icon link"
-                    className="flex justify-center items-center"
-                  >
+                <a
+                  href="#"
+                  aria-label="Icon link"
+                  className="flex justify-center items-center rounded-icon"
+                >
+                  <div className="w-9 h-9 bg-neutral_DGrey rounded-full flex justify-center items-center">
                     <Image
                       src="/Path.svg"
                       alt="Icon"
@@ -56,14 +78,14 @@ function Footer() {
                       height={20}
                       priority
                     />
-                  </a>
-                </div>
-                <div className="w-9 h-9 bg-neutral_DGrey rounded-full flex justify-center items-center">
-                  <a
-                    href="#"
-                    aria-label="Icon link"
-                    className="flex justify-center items-center"
-                  >
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  aria-label="Icon link"
+                  className="flex justify-center items-center rounded-icon"
+                >
+                  <div className="w-9 h-9 bg-neutral_DGrey rounded-full flex justify-center items-center">
                     <Image
                       src="/Path2.svg"
                       alt="Icon"
@@ -71,14 +93,14 @@ function Footer() {
                       height={20}
                       priority
                     />
-                  </a>
-                </div>
-                <div className="w-9 h-9 bg-neutral_DGrey rounded-full flex justify-center items-center">
-                  <a
-                    href="#"
-                    aria-label="Icon link"
-                    className="flex justify-center items-center"
-                  >
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  aria-label="Icon link"
+                  className="flex justify-center items-center rounded-icon"
+                >
+                  <div className="w-9 h-9 bg-neutral_DGrey rounded-full flex justify-center items-center">
                     <Image
                       src="/Path3.svg"
                       alt="Icon"
@@ -86,14 +108,14 @@ function Footer() {
                       height={20}
                       priority
                     />
-                  </a>
-                </div>
-                <div className="w-9 h-9 bg-neutral_DGrey rounded-full flex justify-center items-center">
-                  <a
-                    href="#"
-                    aria-label="Icon link"
-                    className="flex justify-center items-center"
-                  >
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  aria-label="Icon link"
+                  className="flex justify-center items-center rounded-icon"
+                >
+                  <div className="w-9 h-9 bg-neutral_DGrey rounded-full flex justify-center items-center">
                     <Image
                       src="/Path4.svg"
                       alt="Icon"
@@ -101,8 +123,8 @@ function Footer() {
                       height={20}
                       priority
                     />
-                  </a>
-                </div>
+                  </div>
+                </a>
               </div>
             </div>
 
@@ -117,31 +139,15 @@ function Footer() {
                   <li>
                     <a
                       href="#"
-                      className="text-neutral_Sliver text-[12px]/[16px]"
+                      className="text-neutral_Sliver text-[12px]/[16px] link-con"
                     >
-                      Home
+                      About us
                     </a>
                   </li>
                   <li>
                     <a
                       href="#"
-                      className="text-neutral_Sliver text-[12px]/[16px]"
-                    >
-                      Feature
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="text-neutral_Sliver text-[12px]/[16px]"
-                    >
-                      Community
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="text-neutral_Sliver text-[12px]/[16px]"
+                      className="text-neutral_Sliver text-[12px]/[16px] link-con"
                     >
                       Blog
                     </a>
@@ -149,9 +155,25 @@ function Footer() {
                   <li>
                     <a
                       href="#"
-                      className="text-neutral_Sliver text-[12px]/[16px]"
+                      className="text-neutral_Sliver text-[12px]/[16px] link-con"
+                    >
+                      Contact us
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-neutral_Sliver text-[12px]/[16px] link-con"
                     >
                       Pricing
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-neutral_Sliver text-[12px]/[16px] link-con"
+                    >
+                      Testimonials
                     </a>
                   </li>
                 </ul>
@@ -167,7 +189,7 @@ function Footer() {
                   <li>
                     <a
                       href="#"
-                      className="text-neutral_Sliver text-[12px]/[16px]"
+                      className="text-neutral_Sliver text-[12px]/[16px] link-con"
                     >
                       Help center
                     </a>
@@ -175,7 +197,7 @@ function Footer() {
                   <li>
                     <a
                       href="#"
-                      className="text-neutral_Sliver text-[12px]/[16px]"
+                      className="text-neutral_Sliver text-[12px]/[16px] link-con"
                     >
                       Terms of service
                     </a>
@@ -183,7 +205,7 @@ function Footer() {
                   <li>
                     <a
                       href="#"
-                      className="text-neutral_Sliver text-[12px]/[16px]"
+                      className="text-neutral_Sliver text-[12px]/[16px] link-con"
                     >
                       Legal
                     </a>
@@ -191,7 +213,7 @@ function Footer() {
                   <li>
                     <a
                       href="#"
-                      className="text-neutral_Sliver text-[12px]/[16px]"
+                      className="text-neutral_Sliver text-[12px]/[16px] link-con"
                     >
                       Privacy policy
                     </a>
@@ -199,7 +221,7 @@ function Footer() {
                   <li>
                     <a
                       href="#"
-                      className="text-neutral_Sliver text-[12px]/[16px]"
+                      className="text-neutral_Sliver text-[12px]/[16px] link-con"
                     >
                       Status
                     </a>
@@ -215,7 +237,7 @@ function Footer() {
                 <div className="flex items-center bg-neutral_Grey rounded-md px-2 h-8 w-52">
                   <input
                     placeholder="Your email address"
-                    className=" bg-neutral_Grey h-7 w-44 rounded-md text-neutral_Sliver placeholder:text-neutral_Sliver px-2 text-[12px]/[16px]"
+                    className=" bg-neutral_Grey h-7 w-44 rounded-md text-neutral_Sliver focus:outline-none placeholder:text-neutral_Sliver px-2 text-[12px]/[16px]"
                   />
                   <Image
                     src="/send.svg"

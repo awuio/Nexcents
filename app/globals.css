@@ -45,3 +45,12 @@
  * {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 } 
+
+@layer utilities {
+  .link-con {
+    @apply hover:underline focus:ring-1 focus:ring-neutralL_Grey focus:underline focus:outline-none active:focus:ring-0 rounded-sm;
+  }
+  .rounded-icon {
+    @apply rounded-full focus:outline-none focus:ring-[1.5px] focus:ring-white;
+  }
+}

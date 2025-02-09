@@ -8,6 +8,8 @@ export default {
   theme: {
     extend: {
       colors: {
+        S2:"var(--color-shade-2)",
+        T5:"var(--color-tint-5)",
         primary:"var(--primary)",
         neutralwhite:"var(--neutral-white)",
         neutral_DGrey: "var(--neutral-D_Grey)",

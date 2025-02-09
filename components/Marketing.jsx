@@ -1,8 +1,19 @@
+"use client";
+import { useState, useEffect } from "react";
 import React from "react";
 import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { PiSpinnerLight } from "react-icons/pi";
+import Link from "next/link";
 
 function Marketing() {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(true);
+    setTimeout(() => setIsClicked(false), 9500);
+  };
+
   return (
     <div className="max-w-6xl mx-auto">
       <div className=" xl:px-24 px-6 pt-8 items-center">
@@ -32,16 +43,29 @@ function Marketing() {
             <div className=" bg-neutral_Sliver mx-5 h-[124px] rounded-lg shadow-lg flex justify-center w-56 relative -top-16 p-4 text-center text-neutral_DGrey text-[14px]/[20px] font-semibold">
               <div>
                 Creating Streamlined Safeguarding Processes with OneRen
-                <div className="mt-2 flex justify-center">
-                  <a
-                    href="#"
-                    className="text-primary flex"
-                  >
-                    Readmore
-                    <div className="flex justify-center items-center px-2">
-                      <FaArrowRightLong />
-                    </div>
-                  </a>
+                <div className=" flex justify-center">
+                  <Link href="#" passHref legacyBehavior>
+                    <button
+                      type="button"
+                      onClick={handleClick}
+                      aria-label="Click to perform action"
+                      aria-busy={isClicked}
+                      className={`ml-5 text-primary text-nowrap text-[14px]/[20px] font-semibold flex px-3 py-2 hover:bg-neutral_Sliver rounded-[4px] focus:ring-2 focus:outline-none focus:ring-neutral_DGrey active:bg-T5 active:ring-transparent ${
+                        isClicked ? "bg-T5 focus:ring-0" : " bg-none"
+                      }`}
+                    >
+                      <span className="flex pl-1">
+                        Readmore
+                        <div className="flex justify-center items-center px-2">
+                          {isClicked ? (
+                            <PiSpinnerLight className="animate-spin duration-300 transition-all" />
+                          ) : (
+                            <FaArrowRightLong />
+                          )}{" "}
+                        </div>
+                      </span>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -60,16 +84,29 @@ function Marketing() {
               <div>
                 What are your safeguarding responsibilities and how can you
                 manage them?
-                <div className="mt-2 flex justify-center">
-                  <a
-                    href="#"
-                    className="text-primary flex"
-                  >
-                    Readmore
-                    <div className="flex justify-center items-center px-2">
-                      <FaArrowRightLong />
-                    </div>
-                  </a>
+                <div className="flex justify-center">
+                  <Link href="#" passHref legacyBehavior>
+                    <button
+                      type="button"
+                      onClick={handleClick}
+                      aria-label="Click to perform action"
+                      aria-busy={isClicked}
+                      className={`ml-5 text-primary text-nowrap text-[14px]/[20px] font-semibold flex px-3 py-2 hover:bg-neutral_Sliver rounded-[4px] focus:ring-2 focus:outline-none focus:ring-neutral_DGrey active:bg-T5 active:ring-transparent ${
+                        isClicked ? "bg-T5 focus:ring-0" : " bg-none"
+                      }`}
+                    >
+                      <span className="flex pl-1">
+                        Readmore
+                        <div className="flex justify-center items-center px-2">
+                          {isClicked ? (
+                            <PiSpinnerLight className="animate-spin duration-300 transition-all" />
+                          ) : (
+                            <FaArrowRightLong />
+                          )}{" "}
+                        </div>
+                      </span>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -87,16 +124,29 @@ function Marketing() {
             <div className=" bg-neutral_Sliver mx-5 h-[124px] rounded-lg shadow-lg flex justify-center w-56 relative -top-16 p-4 text-center text-neutral_DGrey text-[14px]/[20px] font-semibold">
               <div>
                 Revamping the Membership Model with Triathlon <p>Australia</p>
-                <div className="mt-2 flex justify-center">
-                  <a
-                    href="#"
-                    className="text-primary flex"
-                  >
-                    Readmore
-                    <div className="flex justify-center items-center px-2">
-                      <FaArrowRightLong />
-                    </div>
-                  </a>
+                <div className=" flex justify-center">
+                  <Link href="#" passHref legacyBehavior>
+                    <button
+                      type="button"
+                      onClick={handleClick}
+                      aria-label="Click to perform action"
+                      aria-busy={isClicked}
+                      className={`ml-5 text-primary text-nowrap text-[14px]/[20px] font-semibold flex px-3 py-2 hover:bg-neutral_Sliver rounded-[4px] focus:ring-2 focus:outline-none focus:ring-neutral_DGrey active:bg-T5 active:ring-transparent ${
+                        isClicked ? "bg-T5 focus:ring-0" : " bg-none"
+                      }`}
+                    >
+                      <span className="flex pl-1">
+                        Readmore
+                        <div className="flex justify-center items-center px-2">
+                          {isClicked ? (
+                            <PiSpinnerLight className="animate-spin duration-300 transition-all" />
+                          ) : (
+                            <FaArrowRightLong />
+                          )}{" "}
+                        </div>
+                      </span>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
